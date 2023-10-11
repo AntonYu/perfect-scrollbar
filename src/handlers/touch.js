@@ -166,7 +166,7 @@ export default function(i) {
       }
 
       if (shouldPrevent(differenceX, differenceY)) {
-        e.preventDefault();
+        //e.preventDefault();
       }
     }
   }
