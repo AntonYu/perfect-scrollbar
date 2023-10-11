@@ -1,5 +1,5 @@
 /*!
- * perfect-scrollbar v1.5.6
+ * perfect-scrollbar v1.5.7
  * Copyright 2023 Hyunje Jun, MDBootstrap and Contributors
  * Licensed under MIT
  */
@@ -773,7 +773,7 @@ function wheel(i) {
     var deltaX = e.deltaX;
     var deltaY = -1 * e.deltaY;
 
-    if (typeof deltaX === 'undefined' || typeof deltaY === 'undefined') {
+    if (typeof deltaX === "undefined" || typeof deltaY === "undefined") {
       // OS X Safari
       deltaX = (-1 * e.wheelDeltaX) / 6;
       deltaY = e.wheelDeltaY / 6;
@@ -800,7 +800,7 @@ function wheel(i) {
 
   function shouldBeConsumedByChild(target, deltaX, deltaY) {
     // FIXME: this is a workaround for <select> issue in FF and IE #571
-    if (!env.isWebKit && element.querySelector('select:focus')) {
+    if (!env.isWebKit && element.querySelector("select:focus")) {
       return true;
     }
 
@@ -888,14 +888,14 @@ function wheel(i) {
     shouldPrevent = shouldPrevent || shouldPreventDefault(deltaX, deltaY);
     if (shouldPrevent && !e.ctrlKey) {
       e.stopPropagation();
-      e.preventDefault();
+      //e.preventDefault();
     }
   }
 
-  if (typeof window.onwheel !== 'undefined') {
-    i.event.bind(element, 'wheel', mousewheelHandler);
-  } else if (typeof window.onmousewheel !== 'undefined') {
-    i.event.bind(element, 'mousewheel', mousewheelHandler);
+  if (typeof window.onwheel !== "undefined") {
+    i.event.bind(element, "wheel", mousewheelHandler);
+  } else if (typeof window.onmousewheel !== "undefined") {
+    i.event.bind(element, "mousewheel", mousewheelHandler);
   }
 }
 
@@ -1061,9 +1061,7 @@ function touch(i) {
         startTime = currentTime;
       }
 
-      if (shouldPrevent(differenceX, differenceY)) {
-        e.preventDefault();
-      }
+      if (shouldPrevent(differenceX, differenceY)) ;
     }
   }
   function touchEnd() {
